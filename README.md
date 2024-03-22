@@ -1,5 +1,7 @@
 # Refds Algorithm
 
+[![CI](https://github.com/rafaelesantos/refds-algorithm/actions/workflows/swift.yml/badge.svg?branch=main)](https://github.com/rafaelesantos/refds-algorithm/actions/workflows/swift.yml)
+
 This Swift Package Manager repository contains a collection of commonly used algorithms and data structures implemented in Swift. Whether you're a beginner learning algorithms or an experienced developer looking for ready-to-use implementations, this package aims to provide a comprehensive set of tools to enhance your projects.
 
 ## Installation
