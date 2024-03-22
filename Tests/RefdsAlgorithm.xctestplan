@@ -1,0 +1,50 @@
+{
+  "configurations" : [
+    {
+      "id" : "4CE68BBE-2AB2-48E3-BEBD-BDBA9D4503D0",
+      "name" : "Test Scheme Action",
+      "options" : {
+        "addressSanitizer" : {
+          "enabled" : false
+        }
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "addressSanitizer" : {
+      "detectStackUseAfterReturn" : true,
+      "enabled" : true
+    },
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:",
+          "identifier" : "RefdsAlgorithm",
+          "name" : "RefdsAlgorithm"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:",
+      "identifier" : "RefdsAlgorithm",
+      "name" : "RefdsAlgorithm"
+    },
+    "testExecutionOrdering" : "random",
+    "testTimeoutsEnabled" : true,
+    "threadSanitizerEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "skippedTests" : [
+        "RefdsAlgorithmTests"
+      ],
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "RefdsAlgorithmTests",
+        "name" : "RefdsAlgorithmTests"
+      }
+    }
+  ],
+  "version" : 1
+}
