@@ -78,7 +78,7 @@ public class LinearRegression {
         semaphore.signal()
     }
 
-    public func predict(for features: [Double]) -> Double? {
+    public func predict(for features: [NSNumber]) -> Double? {
         semaphore.wait()
         guard !coefficients.isEmpty,
               var prediction = coefficients[safe: 0]
@@ -86,7 +86,7 @@ public class LinearRegression {
         
         for i in features.indices {
             if let coefficient = coefficients[safe: i + 1] {
-                prediction += coefficient * features[i]
+                prediction += coefficient * features[i].doubleValue
             }
         }
         semaphore.signal()
