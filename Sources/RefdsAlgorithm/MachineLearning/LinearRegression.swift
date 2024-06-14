@@ -9,7 +9,7 @@ public class LinearRegression {
     private let semaphore = DispatchSemaphore(value: 0)
     private let queue = DispatchQueue(
         label: "refds.algorithm.linearRegression",
-        qos: .background
+        qos: .userInteractive
     )
     
     public init(
