@@ -41,8 +41,8 @@ public class Queue<T> {
 extension Queue: RefdsLogger {
     public func logger() {
         var message = "Queue is empty."
-        guard !elements.isEmpty else { return loggerInstance.info(message: message) }
+        guard !elements.isEmpty else { return Self.loggerInstance.info(message: message) }
         message = elements.compactMap { $0 }.map { "\($0)" }.joined(separator: ", ")
-        loggerInstance.info(message: message)
+        Self.loggerInstance.info(message: message)
     }
 }

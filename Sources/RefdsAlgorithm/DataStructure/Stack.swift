@@ -23,8 +23,8 @@ public class Stack<T> {
 extension Stack: RefdsLogger {
     public func logger() {
         var message = "Stack is empty."
-        guard !elements.isEmpty else { return loggerInstance.info(message: message) }
+        guard !elements.isEmpty else { return Self.loggerInstance.info(message: message) }
         message = elements.reversed().map { "\($0)" }.joined(separator: ", ")
-        loggerInstance.info(message: message)
+        Self.loggerInstance.info(message: message)
     }
 }
