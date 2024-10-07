@@ -1,7 +1,7 @@
 import Foundation
 import RefdsShared
 
-public class Queue<T> {
+public actor Queue<T> {
     private var elements: [T?] = []
     private var head = 0
     
@@ -9,21 +9,19 @@ public class Queue<T> {
     public var count: Int { elements.count - head }
     
     public var front: T? {
-        guard !isEmpty else { return nil }
-        return elements[head]
+        guard !isEmpty, let element = elements[safe: head] else { return nil }
+        return element
     }
     
-    public init(elements: [T?] = []) {
-        self.elements = elements
+    public func enqueue(_ element: T) {
+        elements.append(element)
     }
-    
-    public func enqueue(_ element: T) { elements.append(element) }
     
     @discardableResult
     public func dequeue() -> T? {
         guard
             head < elements.count,
-            let element = elements[head] else { return nil }
+            let element = elements[safe: head] else { return nil }
         
         elements[head] = nil
         head += 1
@@ -39,10 +37,10 @@ public class Queue<T> {
 }
 
 extension Queue: RefdsLogger {
-    public func logger() {
+    public func logger() async {
         var message = "Queue is empty."
-        guard !elements.isEmpty else { return Self.loggerInstance.info(message: message) }
+        guard !elements.isEmpty else { return await Self.loggerInstance.info(message: message) }
         message = elements.compactMap { $0 }.map { "\($0)" }.joined(separator: ", ")
-        Self.loggerInstance.info(message: message)
+        await Self.loggerInstance.info(message: message)
     }
 }

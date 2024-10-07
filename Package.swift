@@ -30,12 +30,6 @@ let package = Package(
                 .product(
                     name: "RefdsShared",
                     package: "refds-shared"),
-            ],
-            swiftSettings: [
-                .define("ACCELERATE_NEW_LAPACK")
             ]),
-        .testTarget(
-            name: "RefdsAlgorithmTests",
-            dependencies: ["RefdsAlgorithm"])
     ]
 )
